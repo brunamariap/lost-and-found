@@ -35,7 +35,7 @@ NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
 # Tailwind
 
 TAILWIND_APP_NAME = 'theme'
-TAILWIND_DEV_MODE=True
+TAILWIND_DEV_MODE = True
 
 # Application definition
 
@@ -47,8 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_browser_reload',
+    'debug_toolbar',
     'tailwind',
     'theme',
+
+    # Apps
     'core',
     'posts',
     'registers',
@@ -63,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -152,3 +156,7 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
